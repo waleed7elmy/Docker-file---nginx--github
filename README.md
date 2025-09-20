@@ -1,17 +1,20 @@
-1. Dockerfile Creation
+# Dockerfile Creation
+   
 Created a Dockerfile that:
+
 - Uses the official Nginx Alpine image as base
 - Removes the default Nginx welcome page files
 - Copies the custom HTML file to the appropriate directory
 - Exposes port 80 for web traffic
 - Starts Nginx when the container runs
 -Docker File
+
 FROM nginx:alpine
-# Remove default files
+#Remove default files
 RUN rm -rf /usr/share/nginx/html/*
-# Copy custom HTML
+#Copy custom HTML
 COPY index.html /usr/share/nginx/html/
-# Copy custom Nginx config
+#Copy custom Nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
