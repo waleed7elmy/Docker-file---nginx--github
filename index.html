@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello from Docker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        header {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .docker-logo {
+            font-size: 4rem;
+            margin: 20px 0;
+            color: #2496ed;
+            animation: bounce 2s infinite;
+        }
+
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-box h2 {
+            color: #4b6cb7;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .features {
+            margin-top: 20px;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features i {
+            color: #4b6cb7;
+        }
+
+        .terminal {
+            background: #2d3748;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .terminal .command {
+            color: #68d391;
+        }
+
+        .terminal .comment {
+            color: #a0aec0;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .code-block .comment {
+            color: #a0aec0;
+        }
+
+        .code-block .command {
+            color: #69d391;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="docker-logo">
+                <i class="fab fa-docker"></i>
+            </div>
+            <h1>Hello from my custom Docker image!</h1>
+            <p class="subtitle">Containerized and ready to deploy</p>
+        </header>
+
+        <div class="content">
+            <div class="info-box">
+                <h2><i class="fas fa-info-circle"></i> About This Image</h2>
+                <p>This page is served from a custom Docker container, demonstrating how Docker can package applications and their dependencies into standardized units for software development.</p>
+
+                <div class="terminal">
+                    <div class="comment"># Build the Docker image</div>
+                    <div class="command">$ docker build -t my-custom-image .</div>
+                    <br>
+                    <div class="comment"># Run the container</div>
+                    <div class="command">$ docker run -p 80:80 my-custom-image</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h2><i class="fas fa-cogs"></i> Docker Advantages</h2>
+                <ul class="features">
+                    <li><i class="fas fa-check-circle"></i> Consistent environments across development and production</li>
+                    <li><i class="fas fa-check-circle"></i> Isolation of applications and dependencies</li>
+                    <li><i class="fas fa-check-circle"></i> Lightweight and efficient resource usage</li>
+                    <li><i class="fas fa-check-circle"></i> Rapid deployment and scaling</li>
+                    <li><i class="fas fa-check-circle"></i> Version control for your entire application environment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="info-box">
+                <h2><i class="fas fa-code"></i> Dockerfile</h2>
+                <p>Here's the Dockerfile used to create this custom image:</p>
+
+                <div class="code-block">
+                    <div class="comment"># Use the official Nginx Alpine image</div>
+                    <div class="command">FROM nginx:alpine</div>
+                    <br>
+                    <div class="comment"># Copy our custom HTML file to replace the default Nginx page</div>
+                    <div class="command">COPY index.html /usr/share/nginx/html/</div>
+                    <br>
+                    <div class="comment"># Expose port 80 for web traffic</div>
+                    <div class="command">EXPOSE 80</div>
+                    <br>
+                    <div class="comment"># Start Nginx when the container runs</div>
+                    <div class="command">CMD ["nginx", "-g", "daemon off;"]</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h2><i class="fas fa-terminal"></i> Build & Run Commands</h2>
+                <p>To build and run this Docker image:</p>
+
+                <div class="terminal">
+                    <div class="comment"># Build the image with a tag</div>
+                    <div class="command">docker build -t custom-nginx .</div>
+                    <br>
+                    <div class="comment"># Run the container, mapping port 80</div>
+                    <div class="command">docker run -d -p 8080:80 --name my-container custom-nginx</div>
+                    <br>
+                    <div class="comment"># View the running containers</div>
+                    <div class="command">docker ps</div>
+                    <br>
+                    <div class="comment"># Stop the container</div>
+                    <div class="command">docker stop my-container</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Custom Docker Image | Created with <i class="fas fa-heart" style="color: #e74c3c;"></i> and <i class="fab fa-docker" style="color: #2496ed;"></i></p>
+        </footer>
+    </div>
+</body>
+</html>
